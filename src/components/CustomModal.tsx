@@ -3,9 +3,23 @@ import React from 'react';
 import Modal from 'react-modal';
 
 // Import interfaces
-import { Speaker, Track, Timeline, Agenda_Day } from '../interfaces/Conf_Item';
+import { Speaker, Track, Agenda_Day } from '../interfaces/Conf_Item';
 
-const CustomModal = ({ isOpen, onRequestClose, content }) => {
+interface CustomModalProps {
+    isOpen: boolean;
+    onRequestClose: () => void;
+    content: {
+        type: string;
+        tracks?: Track[];
+        speakers?: Speaker[];
+        timeline?: {
+            link_detail: string;
+            agenda_days?: Agenda_Day[];
+        };
+    }
+    }
+
+const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onRequestClose, content }) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -25,7 +39,7 @@ const CustomModal = ({ isOpen, onRequestClose, content }) => {
       {content.type === 'tracks' && (
         <ul>
             <h2 >Track</h2>
-          {content.tracks.map((track: Track, index) => (
+          {content.tracks?.map((track: Track, index : number) => (
             <li key={index}>{track.track_title}</li>
           ))}
         </ul>
@@ -35,7 +49,7 @@ const CustomModal = ({ isOpen, onRequestClose, content }) => {
             <h2>Speaker</h2>
 
         <ul style={{ display: 'flex', flexWrap: 'wrap'}}>
-          {content.speakers.map((speaker: Speaker, index) => (
+          {content.speakers?.map((speaker: Speaker, index : number) => (
             <ul key={index} style={{
                 listStyleType: 'none',
                 textAlign: 'left',
@@ -65,10 +79,10 @@ const CustomModal = ({ isOpen, onRequestClose, content }) => {
             <h2>Timeline</h2>
            <React.Fragment>
            <li>Link detail: 
-                    <a href={content.timeline.link_detail} target='_blank' rel="noreferrer" style={{color: 'blue', marginLeft: '10px', textDecoration: 'underline'}} >{content.timeline.link_detail}</a>
+                    <a href={content.timeline?.link_detail} target='_blank' rel="noreferrer" style={{color: 'blue', marginLeft: '10px', textDecoration: 'underline'}} >{content.timeline?.link_detail}</a>
              </li>
              <ul>
-               {(content.timeline.agenda_days ?? []).map((agenda: Agenda_Day, index) => (
+               {(content.timeline?.agenda_days ?? []).map((agenda: Agenda_Day, index : number) => (
                  <li key={index}>{agenda.day}</li>
                ))}
              </ul>
