@@ -1,5 +1,7 @@
 import React from 'react';
+import { useState } from 'react';
 import Conf_Item from '../interfaces/Conf_Item';
+import CustomModal from './CustomModal';
 
 interface ConfCardProps {
   conference: Conf_Item;
@@ -7,17 +9,24 @@ interface ConfCardProps {
 
 const Conf_Card: React.FC<ConfCardProps> = ({ conference }) => {
 
+    const [isTracksModalOpen, setTracksModalOpen] = useState(false);
+    const [isSpeakersModalOpen, setSpeakersModalOpen] = useState(false);
+    const [isTimelineModalOpen, setTimelineModalOpen] = useState(false);
+
     // handle some case click button
     const handleViewTracks = () => {
         console.log('view tracks')
+        setTracksModalOpen(true)
     }
 
     const handleViewSpeakers = () => {
         console.log('view speakers')
+        setSpeakersModalOpen(true)
     }
 
     const handleViewTimeline = () => {
         console.log('view timeline')
+        setTimelineModalOpen(true)
     }
 
 
@@ -70,6 +79,33 @@ const Conf_Card: React.FC<ConfCardProps> = ({ conference }) => {
         </li>
     
       </ul>
+
+      <CustomModal
+        isOpen={isTracksModalOpen}
+        onRequestClose={() => setTracksModalOpen(false)}
+        content={{
+            tracks: conference.track,
+            type: 'tracks'
+        }}
+      />
+
+      <CustomModal
+        isOpen={isSpeakersModalOpen}
+        onRequestClose={() => setSpeakersModalOpen(false)}
+        content={{
+            speakers: conference.speakers,
+            type: 'speakers'
+        }}
+      />
+
+      <CustomModal
+        isOpen={isTimelineModalOpen}
+        onRequestClose={() => setTimelineModalOpen(false)}
+        content={{
+            timeline: conference.timeline,
+            type: 'timeline'
+        }}
+      />
 
 
     </div>

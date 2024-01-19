@@ -1,19 +1,19 @@
-interface Speaker {
+export interface Speaker {
     name: string;
     major: string;
     bio_detail: string;
 }
 
-interface Agenda_Day {
+export interface Agenda_Day {
     day: string;
 }
 
-interface Timeline {
+export interface Timeline {
     link_detail: string;
     agenda_days: Agenda_Day[];
 }
 
-interface Track {
+export interface Track {
     track_title: string;
 }
 
@@ -26,7 +26,7 @@ interface Conf_Item {
     topic: string;
     url: string;
     speakers: Speaker[];
-    timeline: Timeline[];
+    timeline: Timeline;
     track: Track[];
     register_url: string;
 }
