@@ -4,8 +4,7 @@ import { useEffect } from 'react'
 import './App.css'
 
 // firebase
-import firebaseConfig from './Firebase.js'
-import { getDatabase } from "firebase/database";
+import firebaseConfig from './Firebase.ts'
 
 // modules
 import getAllConferenceData from './modules/FetchData.js'
@@ -20,7 +19,7 @@ import Conf_Card from './components/Conf_Card.js'
 function App() {
 
   // initialize firebase
-  const firebaseApp = initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
 
   // connect to db realtime and get data
   const [conferences, setConferences] = useState([] as Conf_Item[])
