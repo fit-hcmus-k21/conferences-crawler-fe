@@ -21,6 +21,7 @@ interface Conf_Item {
     id?: number;
     name: string;
     start_date: string;
+    region: string;
     location: string;
     topic: string;
     url: string;

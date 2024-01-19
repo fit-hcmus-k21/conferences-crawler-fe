@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
 import './App.css'
+import './styles/index.css'
 
 // firebase
 import firebaseConfig from './Firebase.ts'
@@ -37,9 +38,9 @@ function App() {
 
   return (
     <>
-     
-      <h1>IT Conferences</h1>
-      <div className="card">
+
+      <h1 style={{marginTop: '0px'}}>IT Conferences</h1>
+      <div className="conferences-card_container">
         {conferences.map((conference, index) => (
           <Conf_Card key={index} conference={conference} />
         ))}
