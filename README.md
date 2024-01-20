@@ -1,30 +1,51 @@
-# React + TypeScript + Vite
+# 🧩 IT Conferences Crawler Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objective:
 
-Currently, two official plugins are available:
+- The main goal of this project is to build a data crawler system to collect information about reputable information technology conferences worldwide.
+- This information may include conference names, deadlines, dates, locations, themes, and additional details such as speaker lists, accepted papers, and registration information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Suggested Steps:
 
-## Expanding the ESLint configuration
+### 1. Plan and Design the System:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Identify a list of websites or data sources from which you want to gather information.
+- Design the structure of the database to store this information.
 
-- Configure the top-level `parserOptions` property like this:
+### 2. Develop the Crawler:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Build a program or script capable of automatically navigating websites, searching for information about conferences, and extracting data from these web pages.
+- Suggested tools/libraries: Consider using tools like Scrapy or BeautifulSoup in Python, or any language suitable for your team's skills.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 3. Data Processing:
+
+- After collecting the data, process and filter the information to eliminate unnecessary data and ensure data accuracy.
+
+### 4. Store Data:
+
+- Store the collected data in a database or file for future use.
+
+### 5. User Interface Integration (Optional):
+
+- If necessary, build a user interface to interact with the collected data.
+
+## Challenges and Difficulties:
+
+- Some websites may have anti-crawling mechanisms or limitations on access speed.
+- Data on websites may change frequently, requiring regular updates.
+- Data may not be presented in an easily analyzable format.
+
+## Applications:
+
+- This project can be beneficial for academic researchers, conference organizing entities, or individuals interested in tracking global conference events.
+
+`Note:`
+- Data collection from websites should adhere to copyright regulations and website policies. The use of collected information may need to comply with legal regulations and the specific policies of each website.
+
+## References:
+
+- CCFDDL
+- LIX Polytechnique
+- Link to crawler with scrapy: [go here](https://github.com/fit-hcmus-k21/conferences-crawler)
+
+___
